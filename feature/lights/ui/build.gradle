@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply plugin: 'kotlin-kapt'
+apply from: "$rootDir/android.gradle"
+
+
+dependencies {
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.lifecycle_extensions
+
+    implementation libs.dagger.dagger_android
+    kapt libs.dagger.compiler
+    kapt libs.dagger.android_processor
+
+    implementation project(':base:common')
+}

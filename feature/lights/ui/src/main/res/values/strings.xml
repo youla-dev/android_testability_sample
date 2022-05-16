@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button_text">Включить %s</string>
+    <string name="stop">красный</string>
+    <string name="go">зелёный</string>
+    <string name="attention">жёлтый</string>
+</resources>

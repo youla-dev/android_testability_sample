@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+apply plugin: 'kotlin-kapt'
+apply from: "$rootDir/android.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.example.lightson"
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.example.lightson.TestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation libs.androidx.core_ktx
+    implementation libs.androidx.appcompat
+    implementation libs.google.material
+
+    //dagger 2
+    implementation libs.dagger.dagger_android_support
+    implementation libs.dagger.dagger_android
+    implementation libs.dagger.dagger
+
+    kapt libs.dagger.compiler
+    kapt libs.dagger.android_processor
+    kaptAndroidTest libs.dagger.compiler
+    kaptAndroidTest libs.dagger.android_processor
+
+    implementation project(':feature:lights:ui')
+    implementation project(':base:contract')
+
+    //tests
+    testImplementation libs.test.junit
+    testImplementation libs.mockito.core
+    testImplementation libs.mockito.inline
+
+    testImplementation libs.mockk.mockk
+
+    //ui tests
+    androidTestImplementation libs.test.core
+    androidTestImplementation libs.test.core_ktx
+    androidTestImplementation libs.test.espresso.core
+    androidTestImplementation libs.test.espresso.idling
+    androidTestImplementation libs.test.espresso.intents
+    androidTestImplementation libs.test.junit
+    androidTestImplementation libs.test.junit_ktx
+    androidTestImplementation libs.test.kaspresso
+    androidTestImplementation libs.test.kaspresso_support
+    androidTestImplementation libs.test.allure.android
+    androidTestImplementation libs.test.rules
+    androidTestImplementation libs.test.runner
+    //needed for tests to compile
+    androidTestImplementation libs.test.hamcrest
+    androidTestImplementation libs.rx.rx3_idler
+    androidTestImplementation libs.test.espresso.idling_concurrent
+    androidTestImplementation libs.mockk.mockk_android
+    androidTestImplementation libs.dexopener
+
+    androidTestUtil libs.test.orchestrator
+}

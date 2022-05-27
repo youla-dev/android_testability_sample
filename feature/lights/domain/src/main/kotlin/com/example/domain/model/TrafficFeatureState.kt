@@ -1,6 +1,6 @@
 package com.example.domain.model
 
-class FeatureState(
+class TrafficFeatureState(
     val previous: TrafficLight? = null,
     val current: TrafficLight
 )

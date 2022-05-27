@@ -7,3 +7,8 @@ java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
+
+/***
+ * Surely, layers (domain / ui ) should be separated in production project.
+ * I'm not doing this due to my laziness and lack of time.
+ */

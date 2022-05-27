@@ -1,6 +1,7 @@
 package com.example.di
 
 import android.app.Application
+import com.example.lightson.test.traffic.TrafficTest
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -20,5 +21,7 @@ interface TestAppComponent : AppComponent {
         fun build(): TestAppComponent
 
     }
+
+    fun inject(test: TrafficTest)
 
 }

@@ -20,8 +20,6 @@ interface AppComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
-        //fun utilModule(utilModule: UtilModule): Builder
-
         fun build(): AppComponent
 
     }

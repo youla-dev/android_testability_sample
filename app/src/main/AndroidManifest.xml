@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lightson">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- TODO Android 10+, for now please use android emulator of older version, like sdk 26 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="false"
         android:name=".LightsApp"
@@ -14,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LightsOn"
         tools:targetApi="31">
+
     </application>
 
 </manifest>

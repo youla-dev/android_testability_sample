@@ -9,10 +9,14 @@ apply from: "$rootDir/android.gradle"
 dependencies {
     implementation libs.androidx.appcompat
     implementation libs.androidx.lifecycle_extensions
+    implementation libs.rx.rxjava3
 
+    implementation libs.dagger.dagger
     implementation libs.dagger.dagger_android
     kapt libs.dagger.compiler
     kapt libs.dagger.android_processor
 
     implementation project(':base:common')
+    implementation project(':base:contract')
+    implementation project(':feature:lights:domain')
 }

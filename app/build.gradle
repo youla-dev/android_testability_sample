@@ -40,6 +40,7 @@ dependencies {
 
     implementation project(':feature:lights:ui')
     implementation project(':base:contract')
+    implementation project(':base:common')
 
     //tests
     testImplementation libs.test.junit

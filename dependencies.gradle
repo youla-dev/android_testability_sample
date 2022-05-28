@@ -30,6 +30,7 @@ ext.libs = [
                 inject: 'javax.inject:javax.inject:1'
         ],
 
+        junit                    : 'junit:junit:4.12',
         test: [
                 core        : 'androidx.test:core:1.4.1-alpha03',
                 core_ktx    : 'androidx.test:core-ktx:1.4.1-alpha03',
@@ -38,6 +39,7 @@ ext.libs = [
                 orchestrator: 'androidx.test:orchestrator:1.4.1-alpha03',
                 runner      : 'androidx.test:runner:1.4.1-alpha03',
                 rules       : 'androidx.test:rules:1.4.1-alpha03',
+                annotation_exp: 'androidx.annotation:annotation-experimental:1.1.0',
                 hamcrest    : 'org.hamcrest:hamcrest:2.2',
                 espresso    : [
                         core             : 'androidx.test.espresso:espresso-core:3.4.0',
@@ -56,8 +58,8 @@ ext.libs = [
         ],
 
         mockito                  : [
-                core  : 'org.mockito:mockito-core:2.21.0',
-                inline: 'org.mockito:mockito-inline:2.21.0'
+                core  : 'org.mockito:mockito-core:2.23.0',
+                inline: 'org.mockito:mockito-inline:2.23.0'
         ],
 
         mockk                    : [

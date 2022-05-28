@@ -2,11 +2,7 @@ plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm'
 }
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
+apply from: "$rootDir/ktln.gradle"
 
 /***
  * Surely, layers (domain / ui ) should be separated in production project.

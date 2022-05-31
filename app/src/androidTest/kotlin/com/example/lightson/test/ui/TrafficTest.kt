@@ -1,4 +1,4 @@
-package com.example.lightson.test.traffic
+package com.example.lightson.test.ui
 
 import android.content.Intent
 import androidx.lifecycle.Lifecycle

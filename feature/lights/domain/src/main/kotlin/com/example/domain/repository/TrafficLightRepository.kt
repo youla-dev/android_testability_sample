@@ -15,10 +15,10 @@ interface TrafficLightRepository {
     /**
      * Returns whether saving state was successful
      */
-    fun saveState(state: TrafficFeatureState) : Boolean
+    fun saveState(state: TrafficFeatureState): Boolean
 
     /**
      * Returns last saved state
      */
-    fun restoreState() : TrafficFeatureState?
+    fun restoreState(): TrafficFeatureState?
 }

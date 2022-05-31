@@ -13,7 +13,7 @@ import com.example.domain.model.TrafficLight
  */
 class TrafficLightStrategyImpl : TrafficLightStrategy {
 
-    override fun nextLight(previous: TrafficLight?, current: TrafficLight?) : TrafficLight {
+    override fun nextLight(previous: TrafficLight?, current: TrafficLight?): TrafficLight {
         return when {
             previous == null && current == null ->
                 throw IllegalArgumentException("must specify either previous or current light state")

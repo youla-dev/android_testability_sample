@@ -8,7 +8,7 @@ import org.junit.Test
 
 class TrafficLightStrategyTest {
 
-    private val strategy : TrafficLightStrategy = TrafficLightStrategyImpl()
+    private val strategy: TrafficLightStrategy = TrafficLightStrategyImpl()
 
     @Test
     fun `with current green light expect next yellow light`() {
@@ -34,6 +34,6 @@ class TrafficLightStrategyTest {
         Assert.assertEquals(TrafficLight.RED, nextLight)
     }
 
-    //the rest is task for a reader =)
+    //the rest is a homework for a reader =)
 
 }

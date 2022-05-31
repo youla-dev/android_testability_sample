@@ -25,7 +25,7 @@ class TrafficLightsVm @Inject constructor(
     get() = viewStateProcessor
 
     /**
-     * In production code this method is the part of public Interface.
+     * In production code this method IS THE PART of the "Interface".
      * It may be Consumer / AbsViewModel / etc ...
      */
     fun consume(event: UIEvent) {

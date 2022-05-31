@@ -1,7 +1,9 @@
 package com.example.di
 
 import android.app.Application
-import com.example.lightson.test.traffic.TrafficTest
+import com.example.lightson.mapper.TrafficStateMapper
+import com.example.lightson.test.integraion.TrafficStateMapperTest
+import com.example.lightson.test.ui.TrafficTest
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -23,5 +25,6 @@ interface TestAppComponent : AppComponent {
     }
 
     fun inject(test: TrafficTest)
+    fun inject(test: TrafficStateMapperTest)
 
 }

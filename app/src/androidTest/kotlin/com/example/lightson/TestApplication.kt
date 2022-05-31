@@ -7,15 +7,15 @@ import com.example.di.DaggerTestAppComponent
 import com.example.di.TestAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.HasAndroidInjector
+import org.junit.Test
 
 class TestApplication :  Application(), HasAndroidInjector {
 
-    @Suppress("CAST_NEVER_SUCCEEDS")
-    val testAppComponent: DaggerTestAppComponent
-        get() = _appComponent as DaggerTestAppComponent
+    val testAppComponent: TestAppComponent
+        get() = _appComponent
 
     private lateinit var appInjector: AppInjector
-    private lateinit var _appComponent: AppComponent
+    private lateinit var _appComponent: TestAppComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -24,9 +24,10 @@ class TestApplication :  Application(), HasAndroidInjector {
 
     override fun androidInjector(): AndroidInjector<Any> = appInjector.androidInjector
 
-    fun reCreateComponent(override: Any? = null) {
+    fun reCreateComponent(override: Any? = null) : TestAppComponent {
         _appComponent = buildAppComponent(override)
         appInjector = AppInjector(_appComponent, this)
+        return _appComponent
     }
 
     private fun buildAppComponent(override: Any? = null): TestAppComponent {

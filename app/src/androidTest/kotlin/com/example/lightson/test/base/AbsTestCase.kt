@@ -4,6 +4,7 @@ import com.kaspersky.components.alluresupport.interceptors.step.AllureMapperStep
 import com.kaspersky.kaspresso.enricher.MainSectionEnricher
 import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.BaseTestCase
+import org.junit.Before
 
 abstract class AbsTestCase<InitData, Data>(
     kaspressoBuilderAdditional: (Kaspresso.Builder.() -> Unit)? = null,
@@ -19,5 +20,10 @@ abstract class AbsTestCase<InitData, Data>(
 ) {
 
     abstract fun inject()
+
+    @Before
+    fun before() {
+        inject()
+    }
 
 }

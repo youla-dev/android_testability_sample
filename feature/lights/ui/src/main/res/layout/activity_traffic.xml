@@ -12,7 +12,7 @@
         android:id="@+id/traffic_switch_btn"
         android:layout_gravity="bottom|center_horizontal"
         android:gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 

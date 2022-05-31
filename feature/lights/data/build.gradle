@@ -6,5 +6,8 @@ apply plugin: 'kotlin-kapt'
 apply from: "$rootDir/android.gradle"
 
 dependencies {
+    implementation libs.dagger.dagger
+    kapt libs.dagger.compiler
 
+    implementation project(':feature:lights:domain')
 }

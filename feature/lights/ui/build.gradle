@@ -19,4 +19,11 @@ dependencies {
     implementation project(':base:common')
     implementation project(':base:contract')
     implementation project(':feature:lights:domain')
+    /*
+     * This is not necessarily violation of clean architecture,
+     * cause `ui` and `data` are in the same aka `framework` layer.
+     *
+     * If you do facade modules or possibly divide api / impl, this dependency is not needed.
+     */
+    implementation project(':feature:lights:data')
 }

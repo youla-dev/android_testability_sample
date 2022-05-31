@@ -6,9 +6,11 @@ import dagger.Component
 import dagger.android.DispatchingAndroidInjector
 import javax.inject.Singleton
 
-@Component(modules = [
-    AppCompositeModule::class
-])
+@Component(
+    modules = [
+        AppCompositeModule::class,
+    ]
+)
 @Singleton
 interface AppComponent {
 
@@ -19,6 +21,8 @@ interface AppComponent {
 
         @BindsInstance
         fun application(application: Application): Builder
+
+        fun repoModule(repoModule: RepoModule): Builder
 
         fun build(): AppComponent
 

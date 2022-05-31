@@ -21,6 +21,7 @@ class LightsApp : Application(), HasAndroidInjector {
         return DaggerAppComponent
             .builder()
             .application(this)
+            //.repoModule(RepoModule())
             .build()
     }
 

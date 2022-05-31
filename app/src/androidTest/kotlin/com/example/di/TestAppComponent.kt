@@ -1,7 +1,7 @@
 package com.example.di
 
 import android.app.Application
-import com.example.lightson.mapper.TrafficStateMapper
+import com.example.lightson.test.integraion.TrafficRepositoryTest
 import com.example.lightson.test.integraion.TrafficStateMapperTest
 import com.example.lightson.test.ui.TrafficTest
 import dagger.BindsInstance
@@ -20,11 +20,14 @@ interface TestAppComponent : AppComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
+        fun repoModule(repoModule: RepoModule) : Builder
+
         fun build(): TestAppComponent
 
     }
 
     fun inject(test: TrafficTest)
     fun inject(test: TrafficStateMapperTest)
+    fun inject(test: TrafficRepositoryTest)
 
 }

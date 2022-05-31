@@ -2,9 +2,11 @@ package com.example.domain.repository
 
 import com.example.domain.model.TrafficFeatureState
 
-/**
- * Personally, I do prefer Reactive Flows for Android OS has so many async work.
+/*
+ * Personally, I DO prefer Reactive Flows everywhere because of Android OS has so many async work.
  * You can use whatever you like - RxJava, Jetbrains Flows, etc.
+ *
+ * But in this case I decided to try the opposite way.
  *
  * It makes sense to design domain layer as simple as possible, which therefore
  * brings us to using blocking (synchronous) interface.

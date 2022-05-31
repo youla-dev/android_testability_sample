@@ -9,7 +9,6 @@ dependencies {
     implementation libs.dagger.dagger
     kapt libs.dagger.compiler
 
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation libs.junit
     testImplementation libs.mockito.core
     testImplementation libs.mockito.inline

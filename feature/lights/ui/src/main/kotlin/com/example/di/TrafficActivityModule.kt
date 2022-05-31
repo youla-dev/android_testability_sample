@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-abstract class TrafficActivityModule() {
+abstract class TrafficActivityModule {
 
     @ContributesAndroidInjector
     abstract fun contributeTrafficLightActivity() : TrafficLightActivity

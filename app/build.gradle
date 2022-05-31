@@ -41,6 +41,11 @@ dependencies {
     implementation project(':feature:lights:ui')
     implementation project(':base:contract')
     implementation project(':base:common')
+    /*
+        You could divide your feature module into two parts - `api` and `implementation`, or you
+        could use facade pattern and make some facade module.
+     */
+    implementation project(':feature:lights:domain')
 
     //tests
     testImplementation libs.test.junit
@@ -50,7 +55,6 @@ dependencies {
     testImplementation libs.mockk.mockk
 
     //ui tests
-    androidTestImplementation project(':feature:lights:domain')
     androidTestImplementation libs.test.core
     androidTestImplementation libs.test.core_ktx
     androidTestImplementation libs.test.espresso.core
@@ -71,4 +75,8 @@ dependencies {
     androidTestImplementation libs.dexopener
 
     androidTestUtil libs.test.orchestrator
+
+    //testing integrations
+    androidTestImplementation project(':feature:lights:domain')
+    androidTestImplementation project(':feature:lights:data')
 }

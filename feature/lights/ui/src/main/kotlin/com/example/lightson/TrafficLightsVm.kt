@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.common.CompositeDisposablesMap
 import com.example.contract.ui.UIEvent
 import com.example.contract.ui.model.LES
+import com.example.domain.interactor.TrafficLightInteractor
 import com.example.domain.model.TrafficLight
 import com.example.lightson.model.TrafficUIEvent
 import com.example.lightson.model.TrafficUIState
@@ -13,7 +14,7 @@ import io.reactivex.rxjava3.processors.BehaviorProcessor
 import javax.inject.Inject
 
 class TrafficLightsVm @Inject constructor(
-
+    private val interactor: TrafficLightInteractor
 ) : ViewModel() {
 
     private val disposableMap = CompositeDisposablesMap()

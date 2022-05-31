@@ -1,13 +1,10 @@
 package com.example.lightson
 
 import android.app.Application
-import com.example.di.AppComponent
-import com.example.di.AppInjector
-import com.example.di.DaggerTestAppComponent
-import com.example.di.TestAppComponent
+import com.example.di.*
+import com.example.domain.repository.TrafficLightRepository
 import dagger.android.AndroidInjector
 import dagger.android.HasAndroidInjector
-import org.junit.Test
 
 class TestApplication :  Application(), HasAndroidInjector {
 
@@ -24,16 +21,21 @@ class TestApplication :  Application(), HasAndroidInjector {
 
     override fun androidInjector(): AndroidInjector<Any> = appInjector.androidInjector
 
-    fun reCreateComponent(override: Any? = null) : TestAppComponent {
+    fun reCreateComponent(
+        override: TrafficLightRepository? = null
+    ) : TestAppComponent {
         _appComponent = buildAppComponent(override)
         appInjector = AppInjector(_appComponent, this)
         return _appComponent
     }
 
-    private fun buildAppComponent(override: Any? = null): TestAppComponent {
+    private fun buildAppComponent(
+        override: TrafficLightRepository? = null
+    ): TestAppComponent {
         return DaggerTestAppComponent
             .builder()
             .application(this)
+            .repoModule(RepoModule(override))
             .build()
     }
 

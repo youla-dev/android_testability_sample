@@ -1,6 +1,7 @@
 package com.example.di
 
 import android.app.Application
+import com.example.lightson.test.integraion.TrafficInteractorIntegrationTest
 import com.example.lightson.test.integraion.TrafficRepositoryTest
 import com.example.lightson.test.integraion.TrafficStateMapperTest
 import com.example.lightson.test.ui.TrafficTest
@@ -29,5 +30,6 @@ interface TestAppComponent : AppComponent {
     fun inject(test: TrafficTest)
     fun inject(test: TrafficStateMapperTest)
     fun inject(test: TrafficRepositoryTest)
+    fun inject(test: TrafficInteractorIntegrationTest)
 
 }

@@ -5,6 +5,13 @@ import com.example.domain.model.TrafficFeatureState
 import com.example.domain.model.TrafficLight
 import com.example.domain.repository.TrafficLightRepository
 
+/*
+    Of course, in a production app usually you would use SavedStateHandle or something like that.
+    Personally, I recommend either modeling ui restore as some `ui event`,
+    or wrapping current fragment/activity in some component you would use to save data in
+    the data layer.
+    SharedPreferences here is just for a simplicity.
+ */
 class TrafficLightRepositoryImpl(
     private val shp: SharedPreferences
 ) : TrafficLightRepository {

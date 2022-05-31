@@ -3,7 +3,7 @@ package com.example.domain.repository
 import com.example.domain.model.TrafficFeatureState
 
 /*
- * Personally, I DO prefer Reactive Flows everywhere because of Android OS has so many async work.
+ * Personally, I DO prefer Reactive Flows everywhere because of Android OS has a lot of async work.
  * You can use whatever you like - RxJava, Jetbrains Flows, etc.
  *
  * But in this case I decided to try the opposite way.

@@ -6,8 +6,8 @@ import com.example.domain.repository.TrafficLightRepository
 import com.example.domain.strategy.TrafficLightStrategy
 import javax.inject.Inject
 
-/**
- * Personally, I do prefer Reactive Flows for Android OS has so many async work.
+/*
+ * Personally, I DO prefer Reactive Flows everywhere because of Android OS has a lot of async work.
  * You can use whatever you like - RxJava, Jetbrains Flows, etc.
  *
  * It makes sense to design domain layer as simple as possible, which therefore
@@ -15,7 +15,7 @@ import javax.inject.Inject
  * So, you could reuse domain logic in another project/platform/etc. and you won't
  * depend on particular async framework (like Flow or Rx).
  *
- * This interactor's implementation was not hidden behind an interface, because of
+ * This logic is not a subject to change, so interactor is not an interface
  */
 class TrafficLightInteractor @Inject constructor(
     private val strategy: TrafficLightStrategy,
@@ -25,8 +25,7 @@ class TrafficLightInteractor @Inject constructor(
     /**
      * Strictly init with submitted light
      */
-    fun init(light: TrafficLight): TrafficFeatureState {
-        val state = TrafficFeatureState(previous = null, current = light)
+    fun init(state: TrafficFeatureState): TrafficFeatureState {
         repository.saveState(state)
         return state
     }

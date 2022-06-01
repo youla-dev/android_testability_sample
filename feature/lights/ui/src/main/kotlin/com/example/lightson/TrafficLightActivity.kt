@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ProgressBar
 import com.example.common.CompositeDisposablesMap
+import com.example.common.SchedulersFactory
 import com.example.common.ViewModelFactory
 import com.example.common.create
 import com.example.contract.ui.model.LES
@@ -23,8 +25,12 @@ class TrafficLightActivity : AppCompatActivity(), HasAndroidInjector  {
     lateinit var dispatchingFragmentsInjector: DispatchingAndroidInjector<Any>
     override fun androidInjector(): AndroidInjector<Any> = dispatchingFragmentsInjector
 
+    @Inject
+    lateinit var schedulersFactory: SchedulersFactory
+
     private lateinit var background: View
     private lateinit var button: Button
+    private lateinit var progress: ProgressBar
 
     @Inject
     lateinit var vmFactory: ViewModelFactory<TrafficLightsVm>
@@ -48,30 +54,30 @@ class TrafficLightActivity : AppCompatActivity(), HasAndroidInjector  {
     private fun setupView() {
         background = findViewById(R.id.traffic_root)
         button = findViewById(R.id.traffic_switch_btn)
+        progress = findViewById(R.id.traffic_progress_bar)
         button.setOnClickListener { vm.consume(TrafficUIEvent.Next()) }
     }
 
     private fun subscribeVM() {
         vm = vmFactory.create().of(this)
         disposablesMap["traffic_state"] = vm
-            .states
+            .viewStates
             .filter { it.isCorrect }
-            //.observeOn(Scd)
+            .observeOn(schedulersFactory.main)
             .subscribe { acceptState(it) }
     }
 
     private fun acceptState(les: LES<TrafficUIState>) {
         //Improvement - cache last state and then check equals
 
-        //todo switch defaults
-        if (les.isLoading) {
-            //todo show loading
-        }
+        progress.visibility = if (les.isLoading) View.VISIBLE else View.GONE
         if (les.isError) {
-            //todo show error
+            //task for a reader - make errors =)
         }
+
         val uiState = les.state
         if (uiState != null) {
+            button.visibility = View.VISIBLE
             background.setBackgroundColor(uiState.backgroundColor)
             button.text = uiState.buttonText
         }

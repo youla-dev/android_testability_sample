@@ -25,7 +25,10 @@ class TrafficLightStrategyImpl : TrafficLightStrategy {
     }
 
     private fun nextNonNullLight(previous: TrafficLight, current: TrafficLight): TrafficLight {
-        if (current == TrafficLight.GREEN || current == TrafficLight.RED)
+        if (current == TrafficLight.GREEN)
+            return TrafficLight.YELLOW
+
+        if (current == TrafficLight.RED)
             return TrafficLight.YELLOW
 
         //current is Yellow

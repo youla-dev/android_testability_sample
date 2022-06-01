@@ -8,12 +8,20 @@
     android:layout_height="match_parent"
     tools:context=".TrafficLightActivity">
 
+    <ProgressBar
+        android:id="@+id/traffic_progress_bar"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
     <Button
         android:id="@+id/traffic_switch_btn"
         android:layout_gravity="bottom|center_horizontal"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="visible"
         />
 
 </FrameLayout>

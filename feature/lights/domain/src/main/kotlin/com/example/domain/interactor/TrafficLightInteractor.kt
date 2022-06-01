@@ -50,7 +50,9 @@ class TrafficLightInteractor @Inject constructor(
     fun nextState(): TrafficFeatureState {
         val lastState =
             repository.restoreState() ?: throw IllegalStateException("could not restore state")
-        return next(lastState)
+        val next = next(lastState)
+        repository.saveState(next)
+        return next
     }
 
 }

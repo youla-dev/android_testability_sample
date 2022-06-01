@@ -9,9 +9,13 @@ import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
-@Component(modules = [
-    AppCompositeModule::class
-])
+@Component(
+    modules = [
+        AppCompositeModule::class,
+        //this way you'll have more modules - a little bit more codegen
+        TestSchedulersFactoryModule::class
+    ]
+)
 @Singleton
 interface TestAppComponent : AppComponent {
 
@@ -21,7 +25,7 @@ interface TestAppComponent : AppComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
-        fun repoModule(repoModule: RepoModule) : Builder
+        fun repoModule(repoModule: RepoModule): Builder
 
         fun build(): TestAppComponent
 

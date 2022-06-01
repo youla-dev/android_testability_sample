@@ -4,7 +4,7 @@ plugins {
 }
 apply from: "$rootDir/ktln.gradle"
 
-/***
- * Surely, layers (domain / ui ) should be separated in production project.
+/*
+ * Sure, layers (domain / ui ) should be separated in production project.
  * I'm not doing this due to my laziness and lack of time.
  */

@@ -41,11 +41,11 @@ class TrafficStateMapper @Inject constructor(
         //As you can see, string is from the resources repository
         //You can get color same way
         val colorPart : String = when {
-            currentLight == TrafficLight.RED || currentLight == TrafficLight.GREEN ->
-                resourceRepository.getString(R.string.attention)
+            currentLight == TrafficLight.RED -> resourceRepository.getString(R.string.attention)
+            currentLight == TrafficLight.GREEN -> resourceRepository.getString(R.string.attention)
             currentLight == TrafficLight.YELLOW && previousLight == TrafficLight.GREEN ->
                 resourceRepository.getString(R.string.stop)
-            currentLight == TrafficLight.RED && previousLight == TrafficLight.RED ->
+            currentLight == TrafficLight.YELLOW && previousLight == TrafficLight.RED ->
                 resourceRepository.getString(R.string.go)
             else ->
                 throw IllegalStateException("did not supposed to be with" +

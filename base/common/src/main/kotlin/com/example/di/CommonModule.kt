@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.example.common.ResourceRepositoryImpl
 import com.example.contract.domain.ResourceRepository
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

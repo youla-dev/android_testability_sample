@@ -9,6 +9,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AppCompositeModule::class,
+        //this way you'll have more modules - a little bit more codegen
+        SchedulersFactoryModule::class
     ]
 )
 @Singleton
@@ -22,6 +24,7 @@ interface AppComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
+        //for override example
         fun repoModule(repoModule: RepoModule): Builder
 
         fun build(): AppComponent
